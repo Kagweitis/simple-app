@@ -23,7 +23,7 @@ public class BooksController {
     @GetMapping("/books")
     @ResponseStatus(HttpStatus.OK)
     public Book getBooks(){
-        return booksService.getBookById();
+        return booksService.getBookBy();
     }
 
 }
