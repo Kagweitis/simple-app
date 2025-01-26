@@ -23,4 +23,4 @@ COPY --from=builder /app/target/SimpleApp-0.0.1-SNAPSHOT.jar SimpleApp-0.0.1-SNA
 EXPOSE 5050
 
 # Command to run the application
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "SimpleApp-0.0.1-SNAPSHOT.jar"]
