@@ -25,8 +25,8 @@
 
 2. **Build and Run the Application Locally Using Docker**:
     ```bash
-   docker build -t simple-app:latest .
-   docker run -d -p 5050:5050 simple-app:latest
+   docker build -t georgekagwe/simple-app:latest .
+   docker run -d -p 5050:5050 georgekagwe/simple-app:latest
     ```
     Once running, open the browser and access the application via
     http://localhost:5050/api/v1/books
@@ -48,16 +48,23 @@
      ```
 - Once running cd into the manifests directory and deploy on minikube
     ```bash
-    cd k8s
+    cd k8s  
     kubectl apply -f deployment.yaml
     ```
 ### Accessing the Application
-- To make the application accessible, run the commands below
+- Get minikube's ip address to access the application
     ```bash
-    kubectl expose deployment simple-app-deployment --type=NodePort --port=5050
-    minikube service simple-app-deployment --url
+    minikube ip
     ```
-- Access the application using the url via browser or postman
+- Access the application via http://<minikube-ip>:30001
+
+[//]: # (- To make the application accessible, run the commands below)
+
+[//]: # (    ```bash)
+
+[//]: # (    minikube service simple-app-deployment --url)
+
+[//]: # (    ```)
 ## CI/CD Pipeline Explanation
 
 The CI/CD pipeline in GitHub Actions automates the process of building, testing, and deploying the application, ensuring that new code changes are continuously integrated and deployed in a seamless manner.
@@ -90,6 +97,8 @@ The pipeline is triggered on any push or pull request to the `main` branch. It b
 ## Decisions, Assumptions, and Challenges Faced
 **Decisions**
 - Containerization: Docker was chosen for easy portability and consistent deployment.
+- The jar file build config was outlined in the Dockerfile to facilitate easy building by the Github actions workflow
+- Github secrets were used for security
 
 **Assumptions**
 - The host machine has a stable internet connection for Docker image pulls and Minikube setup.
