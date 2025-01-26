@@ -56,7 +56,7 @@
     ```bash
     minikube ip
     ```
-- Access the application via http://<minikube-ip>:30001
+- Access the application via http://minikube-ip:30001
 ## CI/CD Pipeline Explanation
 
 The CI/CD pipeline in GitHub Actions automates the process of building, testing, and deploying the application, ensuring that new code changes are continuously integrated and deployed in a seamless manner.
